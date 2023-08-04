@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Other way to connect the controller to the UI
+        //countriesTableView.dataSource = self
+        //countriesTableView.delegate = self
+        
         countriesTableView.register(
             UITableViewCell.self,
             forCellReuseIdentifier: Constants.cellIdentifier
@@ -67,7 +71,13 @@ extension ViewController: UITableViewDataSource {
         
         return tableViewCell
     }
-    
-    
 }
 
+// Handle interactions with the UITableView
+// Also needs to be connected in the UI, by selecting the "Outlets -> Delegate" option
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
