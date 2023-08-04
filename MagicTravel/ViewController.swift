@@ -20,7 +20,17 @@ class ViewController: UIViewController {
     @IBOutlet var countriesTableView: UITableView!
     
     // Model from MVC
-    var countries = ["Germany", "France", "China", "Brazil", "Australia", "India", "Canada", "USA", "Mexico", "Ghana", "Egypt", "Argentina"]
+    var countries = [
+        "Germany", "France", "China", "Brazil", "Australia", "India",
+        "Canada", "USA", "Mexico", "Ghana", "Egypt", "Argentina"
+    ]
+    
+    var countryContinent: [String: String] = [
+        "Germany": "Europe", "France": "Europe", "China": "Asia", "Brazil": "South America",
+        "Australia": "Oceania", "India": "Asia", "Canada": "North America",
+        "USA": "North America", "Mexico": "North America", "Ghana": "Africa",
+        "Egypt": "Africa", "Argentina": "South America"
+    ]
     
     struct Constants {
         static let cellIdentifier = "CountryCell"
@@ -66,7 +76,9 @@ extension ViewController: UITableViewDataSource {
         
         // Creates a default content configuration, assigns a text to it and add it back to the cell
         var cellContentConfiguration = tableViewCell.defaultContentConfiguration()
-        cellContentConfiguration.text = countries[indexPath.row]
+        let countryName = countries[indexPath.row]
+        cellContentConfiguration.text = countryName
+        cellContentConfiguration.secondaryText = countryContinent[countryName] ?? "Unknown"
         tableViewCell.contentConfiguration = cellContentConfiguration
         
         return tableViewCell
