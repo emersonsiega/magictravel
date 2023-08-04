@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     // - Select "countriesTableView"
     @IBOutlet var countriesTableView: UITableView!
     
+    // Model from MVC
+    var countries = ["Germany", "France", "China", "Brazil", "Australia", "India", "Canada", "USA", "Mexico", "Ghana", "Egypt", "Argentina"]
+    
     struct Constants {
         static let cellIdentifier = "CountryCell"
     }
@@ -42,7 +45,7 @@ class ViewController: UIViewController {
 // - Drag over the ViewController
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return countries.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,6 +60,10 @@ extension ViewController: UITableViewDataSource {
             for: indexPath
         )
         
+        // Creates a default content configuration, assigns a text to it and add it back to the cell
+        var cellContentConfiguration = tableViewCell.defaultContentConfiguration()
+        cellContentConfiguration.text = countries[indexPath.row]
+        tableViewCell.contentConfiguration = cellContentConfiguration
         
         return tableViewCell
     }
