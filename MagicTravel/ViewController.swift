@@ -92,14 +92,25 @@ extension ViewController: UITableViewDelegate {
         print(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let detailViewController = UIViewController()
-        detailViewController.view.backgroundColor = .white
+        //let detailViewController = UIViewController()
+        //detailViewController.view.backgroundColor = .white
+        // shows a modal view over the current view
         //present(detailViewController, animated: true)
+        
+        // Add a new view into the stack and navigate to it
+        //navigationController?.pushViewController(detailViewController, animated: true)
         
         // To use navigationController, the screen must to be embedded into a navigation controller
         // In the Main.storyboard, select:
         // - Select the view, go to Embed In
         // - Select Navigation Controller
-        navigationController?.pushViewController(detailViewController, animated: true)
+        //
+        // We can use segue to navigate to other view, so a new view must to be
+        // added and linked to the current view:
+        // - In the Main.storyboard, add a new ViewController
+        // - In the current view header, control+clik+drag into the new viewController
+        // - Select Manual Segue -> Show
+        // - Select the link between two views and add an identifier, in this case "showCountryDetails"
+        performSegue(withIdentifier: "showCountryDetails", sender: self)
     }
 }

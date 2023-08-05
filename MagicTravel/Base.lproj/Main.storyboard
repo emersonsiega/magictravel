@@ -37,11 +37,28 @@
                     <navigationItem key="navigationItem" title="Countries" id="39M-Xv-vnU"/>
                     <connections>
                         <outlet property="countriesTableView" destination="mFI-6p-YnJ" id="ohY-Aq-0HM"/>
+                        <segue destination="LsL-p2-fSW" kind="show" identifier="showCountryDetails" id="zCg-c6-mxt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1002.2900763358779" y="-2.1126760563380285"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4Kd-u8-By2">
+            <objects>
+                <viewController id="LsL-p2-fSW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BLj-FO-GP9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BCQ-X2-4g8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sVo-8t-ZRi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IaV-GY-jL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fd7-6Q-WDv">
