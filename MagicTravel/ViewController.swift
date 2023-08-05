@@ -91,5 +91,15 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let detailViewController = UIViewController()
+        detailViewController.view.backgroundColor = .white
+        //present(detailViewController, animated: true)
+        
+        // To use navigationController, the screen must to be embedded into a navigation controller
+        // In the Main.storyboard, select:
+        // - Select the view, go to Embed In
+        // - Select Navigation Controller
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
